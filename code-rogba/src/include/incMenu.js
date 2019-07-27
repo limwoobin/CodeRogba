@@ -10,7 +10,7 @@ const boardList = (key) => {
 
 class incMenu extends Component {
     state = {
-        vval : this.props,
+        vval : 0,
     }
 
     jsonText = { 
@@ -37,10 +37,21 @@ class incMenu extends Component {
     }
 
 
+    _renderList = (vval) => {
+        console.log("renderList:" + vval);
+        this.setState({
+            vval: vval,
+        })
+        return <IncMain vval={vval} />;
+    }
+
+    componentDidMount = () => {
+        console.log('update:' + this.state.vval);
+    }
 
     jogga = (vval) => {
         this.setState({
-            vval : vval,
+            vval : 2,
         });
         console.log('vval:' + vval);
     }
@@ -48,9 +59,9 @@ class incMenu extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => boardList(1)}>MENU1</button><br/>
+                <button onClick={() => this._renderList(1)}>MENU1</button><br/>
                 <button onClick={() => boardList(2)}>MENU2</button><br/>
-                <button onClick={() => boardList(3)}>MENU2</button><br/>
+                <button onClick={() => boardList(3)}>MENU3</button><br/>
                 {/* <button onClick={() => this.jogga(3)}>MENU3</button><br/> */}
             </div>
         );

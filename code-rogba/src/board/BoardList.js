@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class BoardList extends Component {
 
+
     render() {
-        //const {key , owner} = this.props;
+        console.log('boardList:' + this.props.vval);
+
+
+        //const {row} = this.props;
         return (
-            <div>
-                씨발 키값이 {this.props.vval} 인걸 {this.props.owner}이는 어떻게 알았지
-            </div>
+                // <tr>
+                //     <td>{row.brdno}</td>
+                //     <td>{row.brdtitle}</td>
+                //     <td>{row.brdwriter}</td>
+                //     <td>{row.brdwriter}</td>
+                // </tr>
+                <div>
+                    vval : {this.props.vval}
+                    owner : {this.props.owner}
+                </div>
+
         );
     }
 }
@@ -15,6 +28,10 @@ class BoardList extends Component {
 
 BoardList.defaultProps = {
     owner : 'woobeen',
-    vval : '0',
+    vval : 0,
+}
+
+BoardList.propTypes = {
+    vval : PropTypes.number.isRequired,
 }
 export default BoardList;
