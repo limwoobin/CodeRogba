@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppLogo from '../img/include/drogba_logo.png';
 import Style from '../css/include/include.css';
+import IncMenu from './incMenu';
 
 class incHeader extends Component {
     render() {
@@ -15,6 +16,8 @@ class incHeader extends Component {
                     <a href="https://www.daum.net">다음 </a>
                     <a href="https://www.google.com">구글 </a>
                 </div>
+
+                <div className="inc_sub"><IncMenu /></div>
             </div>
         );
     }

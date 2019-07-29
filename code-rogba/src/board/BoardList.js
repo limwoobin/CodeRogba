@@ -1,33 +1,76 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Movie from '../movie/Movie'
+import '../App.css';
 
 class BoardList extends Component {
 
+    state = {
+
+    }
+
+    componentDidUpdate = () => {
+        const {vval} = this.props;
+        console.log('BoardList:' + vval);
+        if(vval === 1){
+            this._getMovies();
+        }
+    }
+
+    // shouldComponentUpdate = (nextProps , nextState) => {
+    //     console.log('shouldComponentUpdate:' + nextProps.vval);
+    //     const {vval} = nextProps;
+    //         console.log('BoardList:' + vval);
+    //         if(vval === 1){
+    //             console.log('성공쿠');
+    //             this._getMovies();
+    //         }
+    //     return true;    
+    // }
+
+    _getMovies = async () => {
+        console.log('getMoives');
+        const movies = await this._callMovieApi();
+        this.setState({
+            movies
+        })
+    }
+
+    _callMovieApi = () => {
+        return fetch('https://yts.lt/api/v2/list_movies.json?sort_by=download count')
+        .then(response => response.json())
+        .then(json => json.data.movies)
+        .catch(err => {console.log(err)})
+    }
+
+    _renderMovies = () => {
+        const movies = this.state.movies.map((movie) => {
+            return <Movie 
+                        key={movie.id}
+                        title={movie.title_english}
+                        poster={movie.medium_cover_image}
+                        genres={movie.genres}
+                        synopsis={movie.synopsis}
+                    />
+        })
+        return movies;
+    }
 
     render() {
-        console.log('boardList:' + this.props.vval);
-
-
-        //const {row} = this.props;
+        const {movies} = this.state;
+        console.log('render:' + {movies});
         return (
-                // <tr>
-                //     <td>{row.brdno}</td>
-                //     <td>{row.brdtitle}</td>
-                //     <td>{row.brdwriter}</td>
-                //     <td>{row.brdwriter}</td>
-                // </tr>
                 <div>
-                    vval : {this.props.vval}
-                    owner : {this.props.owner}
+                    <h1>vval:{this.props.vval}</h1>
+                    <div className={movies ? "App" : "App--loading"}>
+                        {movies ? this._renderMovies() : 'Loading'}
+                    </div>
                 </div>
-
         );
     }
 }
 
-
 BoardList.defaultProps = {
-    owner : 'woobeen',
     vval : 0,
 }
 
