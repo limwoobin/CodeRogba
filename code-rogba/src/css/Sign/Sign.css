@@ -1,0 +1,17 @@
+.calArea{
+    /* position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px; */
+    display: table;
+}
+
+.cal{
+    display:table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.calendar{
+    display: inline-block;
+    align-content: center;
+}

@@ -63,7 +63,8 @@
     width: 85%;
     height: 60px;
     float: right;
-    padding-top: 20px; 
+    padding-top: 18px; 
+    padding-right: 2em;
     text-align: right;    
     box-sizing: border-box;
 }
