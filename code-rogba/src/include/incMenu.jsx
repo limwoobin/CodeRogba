@@ -30,6 +30,7 @@ class incMenu extends Component {
                     <button onClick={() => this._renderList('Lotto')}>Lotto</button><br/>
                     <button onClick={() => this._renderList('Minesweeper')}>Minesweeper</button><br/>
                     <button onClick={() => this._renderList('Tictacto')}>Tictacto</button><br/>
+                    <button onClick={() => this._renderList('Contact')}>Contact</button><br/>
                 </div>
                 <div className="inc_main"><IncMain page={this.state.page} /></div>
             </div>
