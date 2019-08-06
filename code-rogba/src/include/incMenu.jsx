@@ -27,6 +27,9 @@ class incMenu extends Component {
                     <button onClick={() => this._renderList('MovieList')}>MovieList</button><br/>
                     <button onClick={() => this._renderList('GuGuDan')}>GuGuDan</button><br/>
                     <button onClick={() => this._renderList('RSP')}>RSP</button><br/>
+                    <button onClick={() => this._renderList('Lotto')}>Lotto</button><br/>
+                    <button onClick={() => this._renderList('Minesweeper')}>Minesweeper</button><br/>
+                    <button onClick={() => this._renderList('Tictacto')}>Tictacto</button><br/>
                 </div>
                 <div className="inc_main"><IncMain page={this.state.page} /></div>
             </div>

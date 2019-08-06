@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../webgame.css';
+import '../../css/webgame/webgame.css';
 
 const rspCoords = {
     바위: '0',
